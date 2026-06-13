@@ -1,5 +1,5 @@
 function typeContent(el: HTMLElement): void {
-  const lines = Array.from(el.querySelectorAll<HTMLElement>('.code-line')).slice(0, 9);
+  const lines = Array.from(el.querySelectorAll<HTMLElement>('.code-line'));
   const originalHTML = lines.map(l => l.innerHTML);
   lines.forEach(l => { l.innerHTML = ''; });
 

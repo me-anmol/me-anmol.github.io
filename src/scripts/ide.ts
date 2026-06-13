@@ -1,3 +1,5 @@
+let isNavigating = false;
+
 function setActiveTab(fileId: string): void {
   document.querySelectorAll<HTMLElement>('.tab').forEach(tab => {
     tab.classList.toggle('active', tab.dataset.tabId === fileId);
@@ -32,10 +34,13 @@ function updateStatusbarFilename(fileId: string): void {
 function navigateToSection(fileId: string): void {
   const section = document.getElementById(fileId);
   if (!section) return;
+  isNavigating = true;
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   setActiveTab(fileId);
   updateStatusbarFilename(fileId);
   flashVimInsert();
+  // Clear after scroll settles (smooth scroll takes ~500ms max)
+  setTimeout(() => { isNavigating = false; }, 800);
 }
 
 // Sidebar file clicks
@@ -75,7 +80,7 @@ const sectionObserver = new IntersectionObserver(
     const sorted = Array.from(visibleSections)
       .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
     const topmost = sorted[0] as HTMLElement | undefined;
-    if (topmost) {
+    if (topmost && !isNavigating) {
       setActiveTab(topmost.id);
       updateStatusbarFilename(topmost.id);
     }
