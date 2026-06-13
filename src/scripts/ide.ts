@@ -7,14 +7,18 @@ function setActiveTab(fileId: string): void {
   });
 }
 
+let vimFlashTimer: ReturnType<typeof setTimeout> | null = null;
+
 function flashVimInsert(): void {
   const modeEl = document.getElementById('vim-mode');
   if (!modeEl) return;
+  if (vimFlashTimer !== null) clearTimeout(vimFlashTimer);
   modeEl.textContent = '-- INSERT --';
   modeEl.classList.add('insert');
-  setTimeout(() => {
+  vimFlashTimer = setTimeout(() => {
     modeEl.textContent = '-- NORMAL --';
     modeEl.classList.remove('insert');
+    vimFlashTimer = null;
   }, 600);
 }
 
@@ -60,15 +64,20 @@ document.querySelectorAll<HTMLElement>('.tab').forEach(tab => {
 });
 
 // IntersectionObserver — update active tab/filename as sections scroll into view
+const visibleSections = new Set<Element>();
+
 const sectionObserver = new IntersectionObserver(
   (entries) => {
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-    if (visible.length > 0) {
-      const section = visible[0].target as HTMLElement;
-      setActiveTab(section.id);
-      updateStatusbarFilename(section.id);
+    entries.forEach(e => {
+      if (e.isIntersecting) visibleSections.add(e.target);
+      else visibleSections.delete(e.target);
+    });
+    const sorted = Array.from(visibleSections)
+      .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+    const topmost = sorted[0] as HTMLElement | undefined;
+    if (topmost) {
+      setActiveTab(topmost.id);
+      updateStatusbarFilename(topmost.id);
     }
   },
   { threshold: 0.15 }
