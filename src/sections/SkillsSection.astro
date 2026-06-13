@@ -1,0 +1,28 @@
+---
+function lines(n: number) {
+  return Array.from({ length: n }, (_, i) => i + 1);
+}
+const lineCount = 14;
+---
+
+<section class="editor-section" id="skills" data-filename="anmol/skills.json">
+  <div class="gutter" aria-hidden="true">
+    {lines(lineCount).map(n => <span>{n}</span>)}
+  </div>
+  <div class="code-content" id="skills-content">
+    <span class="code-line">&#123;</span>
+    <span class="code-line">  <span class="jkey">"languages"</span>:  [<span class="jstr">"Java"</span>, <span class="jstr">"Python"</span>],</span>
+    <span class="code-line">  <span class="jkey">"frameworks"</span>:  [<span class="jstr">"Spring Boot"</span>, <span class="jstr">"Dropwizard"</span>, <span class="jstr">"TestNG"</span>],</span>
+    <span class="code-line">  <span class="jkey">"systems"</span>:     [<span class="jstr">"Distributed Systems"</span>, <span class="jstr">"Microservices"</span>,</span>
+    <span class="code-line">                  <span class="jstr">"Data Pipelines"</span>, <span class="jstr">"Large-scale System Design"</span>, <span class="jstr">"High Reliability"</span>],</span>
+    <span class="code-line">  <span class="jkey">"databases"</span>:   [<span class="jstr">"MySQL"</span>, <span class="jstr">"Apache Cassandra"</span>],</span>
+    <span class="code-line">  <span class="jkey">"infra"</span>:       [<span class="jstr">"Kubernetes"</span>, <span class="jstr">"Docker"</span>, <span class="jstr">"AWS"</span>, <span class="jstr">"Daytona"</span>, <span class="jstr">"Jenkins"</span>, <span class="jstr">"CI/CD"</span>],</span>
+    <span class="code-line">  <span class="jkey">"ai_llm"</span>:      [<span class="jstr">"LLM Orchestration"</span>, <span class="jstr">"Agent Design"</span>,</span>
+    <span class="code-line">                  <span class="jstr">"Prompt Engineering"</span>, <span class="jstr">"AI-powered Code Generation"</span>],</span>
+    <span class="code-line">  <span class="jkey">"engineering"</span>: [<span class="jstr">"OO Design"</span>, <span class="jstr">"Algorithms"</span>, <span class="jstr">"Debugging"</span>,</span>
+    <span class="code-line">                  <span class="jstr">"Performance Optimization"</span>, <span class="jstr">"Code Review"</span>, <span class="jstr">"Technical Leadership"</span>]</span>
+    <span class="code-line">&#125;</span>
+    <span class="code-line"></span>
+    <span class="code-line"></span>
+  </div>
+</section>

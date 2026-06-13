@@ -1,0 +1,36 @@
+---
+function lines(n: number) {
+  return Array.from({ length: n }, (_, i) => i + 1);
+}
+const lineCount = 22;
+---
+
+<section class="editor-section" id="readme" data-filename="anmol/README.md">
+  <div class="gutter" aria-hidden="true">
+    {lines(lineCount).map(n => <span>{n}</span>)}
+  </div>
+  <div class="code-content" id="readme-content" data-typing="true">
+    <span class="code-line"><span class="md-h1"># Anmol Badi</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="md-bold">**Software Engineer**</span> · Platform &amp; Infrastructure</span>
+    <span class="code-line"><span class="md-italic">_CRED · Bangalore · Open to US/Remote_</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="md-quote">&gt; Software engineer with 3+ years designing and scaling production</span></span>
+    <span class="code-line"><span class="md-quote">&gt; systems at CRED — a fintech platform serving <span class="num">16M</span> users and</span></span>
+    <span class="code-line"><span class="md-quote">&gt; processing <span class="num">50M+</span> credit card statements monthly.</span></span>
+    <span class="code-line"><span class="md-quote">&gt; Specializes in distributed systems and LLM agent orchestration.</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><a href="https://github.com/me-anmol" target="_blank" rel="noopener" class="md-link">GitHub</a> · <a href="https://linkedin.com/in/me-anmol" target="_blank" rel="noopener" class="md-link">LinkedIn</a> · <a href="mailto:anmolbadi@gmail.com" class="md-link">Email</a> · <a href="/resume.pdf" target="_blank" rel="noopener" class="md-link">Resume ↓</a></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="cmt">---</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="md-h2">## Education</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="md-bold">**B.M.S. Institute of Technology**</span> · Bangalore, India</span>
+    <span class="code-line"><span class="md-italic">_Bachelor of Engineering, Computer Science and Engineering · 2022_</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="cmt">&gt; Scroll down or click a file in the sidebar to navigate.</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"></span>
+  </div>
+</section>

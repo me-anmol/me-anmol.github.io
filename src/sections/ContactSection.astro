@@ -1,0 +1,28 @@
+---
+function lines(n: number) {
+  return Array.from({ length: n }, (_, i) => i + 1);
+}
+const lineCount = 14;
+---
+
+<section class="editor-section" id="contact" data-filename="anmol/contact.md">
+  <div class="gutter" aria-hidden="true">
+    {lines(lineCount).map(n => <span>{n}</span>)}
+  </div>
+  <div class="code-content" id="contact-content">
+    <span class="code-line"><span class="md-h1"># Contact</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="md-bold">**Email**</span>    <a href="mailto:anmolbadi@gmail.com" class="md-link">anmolbadi@gmail.com</a></span>
+    <span class="code-line"><span class="md-bold">**LinkedIn**</span> <a href="https://linkedin.com/in/me-anmol" target="_blank" rel="noopener" class="md-link">linkedin.com/in/me-anmol</a></span>
+    <span class="code-line"><span class="md-bold">**GitHub**</span>   <a href="https://github.com/me-anmol" target="_blank" rel="noopener" class="md-link">github.com/me-anmol</a></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="cmt">---</span></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="cmt"># Download resume</span></span>
+    <span class="code-line"><span class="kw">$</span> <span class="fn">curl</span> -O <a href="/resume.pdf" target="_blank" rel="noopener" class="md-link">anmolbadi.dev/resume.pdf</a></span>
+    <span class="code-line"></span>
+    <span class="code-line"><span class="cmt"># Or open directly:</span></span>
+    <span class="code-line"><span class="kw">$</span> <span class="fn">open</span> <a href="/resume.pdf" target="_blank" rel="noopener" class="md-link">resume.pdf</a></span>
+    <span class="code-line"></span>
+  </div>
+</section>
