@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg:        #2B2B2B;
-  --panel:     #3C3F41;
-  --gutter-bg: #313335;
-  --gutter:    #606366;
+  --bg:        #0d0d0d;
+  --panel:     #111111;
+  --gutter-bg: #0f0f0f;
+  --gutter:    #2a2a2a;
   --text:      #A9B7C6;
   --kw:        #CC7832;
   --str:       #6A8759;
   --num:       #6897BB;
   --cmt:       #808080;
   --sel:       #214283;
-  --line:      #323232;
+  --line:      #1a1a1a;
   --fn:        #FFC66D;
   --cls:       #A9B7C6;
   --ann:       #BBB529;
@@ -34,7 +34,7 @@ html, body {
 /* Syntax highlight classes — used in section components */
 .kw  { color: var(--kw); }
 .str { color: var(--str); }
-.num { color: var(--num); }
+.num { color: var(--num); text-shadow: 0 0 8px rgba(104, 151, 187, 0.4); }
 .cmt { color: var(--cmt); font-style: italic; }
 .fn  { color: var(--fn); }
 .cls { color: var(--cls); }
@@ -47,8 +47,8 @@ html, body {
 .jpunct { color: var(--text); }
 
 /* Markdown */
-.md-h1    { color: var(--kw); font-weight: 700; }
-.md-h2    { color: var(--kw); font-weight: 700; }
+.md-h1    { color: var(--kw); font-weight: 700; text-shadow: 0 0 20px rgba(204, 120, 50, 0.35); }
+.md-h2    { color: var(--kw); font-weight: 700; text-shadow: 0 0 20px rgba(204, 120, 50, 0.35); }
 .md-bold  { color: var(--text); font-weight: 700; }
 .md-italic { color: var(--cmt); font-style: italic; }
 .md-quote { color: var(--cmt); font-style: italic; }
