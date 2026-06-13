@@ -21,9 +21,9 @@ const outline = [
       <span class="folder-icon">▼</span>
       <span class="folder-name">anmol</span>
     </div>
-    {files.map(f => (
+    {files.map((f, i) => (
       <button
-        class="file-row"
+        class:list={['file-row', { active: i === 0 }]}
         data-file-id={f.id}
         data-filename={`anmol/${f.name}`}
         aria-label={`Navigate to ${f.name}`}
