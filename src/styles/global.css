@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:        #2B2B2B;
+  --panel:     #3C3F41;
+  --gutter-bg: #313335;
+  --gutter:    #606366;
+  --text:      #A9B7C6;
+  --kw:        #CC7832;
+  --str:       #6A8759;
+  --num:       #6897BB;
+  --cmt:       #808080;
+  --sel:       #214283;
+  --line:      #323232;
+  --fn:        #FFC66D;
+  --cls:       #A9B7C6;
+  --ann:       #BBB529;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Syntax highlight classes — used in section components */
+.kw  { color: var(--kw); }
+.str { color: var(--str); }
+.num { color: var(--num); }
+.cmt { color: var(--cmt); font-style: italic; }
+.fn  { color: var(--fn); }
+.cls { color: var(--cls); }
+.ann { color: var(--ann); }
+.key { color: var(--kw); }
+
+/* JSON */
+.jkey { color: var(--kw); }
+.jstr { color: var(--str); }
+.jpunct { color: var(--text); }
+
+/* Markdown */
+.md-h1    { color: var(--kw); font-weight: 700; }
+.md-h2    { color: var(--kw); font-weight: 700; }
+.md-bold  { color: var(--text); font-weight: 700; }
+.md-italic { color: var(--cmt); font-style: italic; }
+.md-quote { color: var(--cmt); font-style: italic; }
+.md-link  { color: var(--str); text-decoration: underline; }
+.md-link:hover { color: var(--num); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
