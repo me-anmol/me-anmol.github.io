@@ -61,3 +61,33 @@ html, body {
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+
+/* Editor sections */
+.editor-section {
+  display: flex;
+  border-bottom: 1px solid #1e1e1e;
+  padding-bottom: 48px;
+}
+.gutter {
+  min-width: 48px;
+  background: var(--gutter-bg);
+  color: var(--gutter);
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 24px 8px 24px 0;
+  text-align: right;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.gutter span { display: block; }
+.code-content {
+  flex: 1;
+  padding: 24px 32px 24px 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.code-line { display: block; }
