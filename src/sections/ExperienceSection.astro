@@ -16,13 +16,13 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// BBPS Bank Onboarding Agent</span></span>
     <span class="code-line">    <span class="cmt">// LLM agent across 5 microservices → 6 banks onboarded (BOI, Bandhan, DCB Edge, ESAF, Jupiter Edge, SBM)</span></span>
     <span class="code-line">    <span class="cmt">// 7-hour process → under 1 hour. Live in production.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-orange"><span class="chip-value">7h→1h</span><span class="chip-label">PROCESS TIME</span></div>
         <div class="chip chip-blue"><span class="chip-value">6</span><span class="chip-label">BANKS ONBOARDED</span></div>
         <div class="chip chip-blue"><span class="chip-value">5</span><span class="chip-label">MICROSERVICES</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Agent</span> <span class="fn">bbpsOnboardingAgent</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">LLMAgent</span>(banks = <span class="num">6</span>, timeReduction = <span class="str">"7h → 1h"</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -30,12 +30,12 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// SLTForge — Service Level Testing Platform</span></span>
     <span class="code-line">    <span class="cmt">// WireMock · MySQL · SQS · Aerospike · LLM agent (Claude Code + Daytona)</span></span>
     <span class="code-line">    <span class="cmt">// Kubernetes sandboxes on demand · rolled out across 15+ production services.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-blue"><span class="chip-value">15+</span><span class="chip-label">SERVICES ROLLED OUT</span></div>
         <div class="chip chip-blue"><span class="chip-value">∞</span><span class="chip-label">K8S SANDBOXES ON-DEMAND</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Framework</span> <span class="fn">sltForge</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Framework</span>(services = <span class="num">15</span>, sandboxes = <span class="str">"on-demand"</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -43,13 +43,13 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// Statement Service Performance</span></span>
     <span class="code-line">    <span class="cmt">// Eliminated redundant upstream calls in a 50M+ monthly statements pipeline.</span></span>
     <span class="code-line">    <span class="cmt">// Reduced system load 20%, decreased response latency.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
-        <div class="chip chip-blue"><span class="chip-value">50M+</span><span class="chip-value-sub"></span><span class="chip-label">STATEMENTS/MO</span></div>
+        <div class="chip chip-blue"><span class="chip-value">50M+</span><span class="chip-label">STATEMENTS/MO</span></div>
         <div class="chip chip-blue"><span class="chip-value">16M</span><span class="chip-label">USERS</span></div>
         <div class="chip chip-orange"><span class="chip-value">↓20%</span><span class="chip-label">SYSTEM LOAD</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Optimization</span> <span class="fn">statementPerformance</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Optimization</span>(statements = <span class="str">"50M+/month"</span>, loadReduction = <span class="str">"20%"</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -63,12 +63,12 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// LLM Config Generator</span></span>
     <span class="code-line">    <span class="cmt">// Auto-generates JSON parser configs for PDF extraction pipelines.</span></span>
     <span class="code-line">    <span class="cmt">// 1.5 days → 5 minutes. Manual effort cut by 70%+.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-orange"><span class="chip-value">1.5d→5m</span><span class="chip-label">CONFIG TIME</span></div>
         <div class="chip chip-orange"><span class="chip-value">70%+</span><span class="chip-label">EFFORT CUT</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Tool</span> <span class="fn">llmConfigGenerator</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Tool</span>(timeReduction = <span class="str">"1.5d → 5min"</span>, effortCut = <span class="str">"70%+"</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -76,11 +76,11 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// MITC Change Detection</span></span>
     <span class="code-line">    <span class="cmt">// Challenged over-engineered scraper proposal; deployed n8n SHA-hash workflow.</span></span>
     <span class="code-line">    <span class="cmt">// Routes bank T&amp;C diffs to Slack. Zero infrastructure cost.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-blue"><span class="chip-value">$0</span><span class="chip-label">INFRA COST</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Workflow</span> <span class="fn">mitcChangeDetection</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Workflow</span>(tool = <span class="str">"n8n"</span>, infraCost = <span class="num">0</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -91,35 +91,35 @@ const lineCount = 96;
     <span class="code-line"></span>
     <span class="code-line">    <span class="cmt">// OO automation frameworks across 10+ Spring Boot and Dropwizard microservices.</span></span>
     <span class="code-line">    <span class="cmt">// Enabled scalable continuous delivery across CRED's distributed financial platform.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-blue"><span class="chip-value">10+</span><span class="chip-label">MICROSERVICES</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Framework</span> <span class="fn">automationFramework</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Framework</span>(services = <span class="num">10</span>, type = <span class="str">"Spring Boot + Dropwizard"</span>);</span>
     <span class="code-line">    &#125;</span>
     <span class="code-line"></span>
     <span class="code-line">    <span class="cmt">// Led Java 8 → 21 upgrades across production services.</span></span>
     <span class="code-line">    <span class="cmt">// Contributed Cassandra and DB-to-POJO utilities to QA libraries across 20+ teams.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-orange"><span class="chip-value">8→21</span><span class="chip-label">JAVA UPGRADE</span></div>
         <div class="chip chip-blue"><span class="chip-value">20+</span><span class="chip-label">TEAMS IMPACTED</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Migration</span> <span class="fn">javaUpgrade</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Migration</span>(from = <span class="str">"Java 8"</span>, to = <span class="str">"Java 21"</span>, teamsImpacted = <span class="num">20</span>);</span>
     <span class="code-line">    &#125;</span>
     <span class="code-line"></span>
     <span class="code-line">    <span class="cmt">// Large-scale PDF validation: 5,000+ statements/month, 40+ fields.</span></span>
     <span class="code-line">    <span class="cmt">// Cross-validated raw PDFs against extraction output.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-blue"><span class="chip-value">5K+</span><span class="chip-label">STATEMENTS/MO</span></div>
         <div class="chip chip-blue"><span class="chip-value">40+</span><span class="chip-label">FIELDS VALIDATED</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Validator</span> <span class="fn">pdfValidation</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Validator</span>(statementsPerMonth = <span class="num">5000</span>, fields = <span class="num">40</span>);</span>
     <span class="code-line">    &#125;</span>
@@ -131,12 +131,12 @@ const lineCount = 96;
     <span class="code-line">    <span class="cmt">// E2E test automation for real-time home diagnostics platform.</span></span>
     <span class="code-line">    <span class="cmt">// +30% test coverage · -50% manual effort.</span></span>
     <span class="code-line">    <span class="cmt">// Debugged cross-service failures via distributed log tracing.</span></span>
-    <span class="code-line chips-line">
+    <div class="code-line chips-line">
       <div class="metric-chips">
         <div class="chip chip-green"><span class="chip-value">+30%</span><span class="chip-label">TEST COVERAGE</span></div>
         <div class="chip chip-orange"><span class="chip-value">-50%</span><span class="chip-label">MANUAL EFFORT</span></div>
       </div>
-    </span>
+    </div>
     <span class="code-line">    <span class="kw">public</span> <span class="cls">Framework</span> <span class="fn">e2eAutomation</span>() &#123;</span>
     <span class="code-line">        <span class="kw">return new</span> <span class="cls">Framework</span>(coverageGain = <span class="str">"30%"</span>, effortCut = <span class="str">"50%"</span>);</span>
     <span class="code-line">    &#125;</span>

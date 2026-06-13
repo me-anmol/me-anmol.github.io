@@ -131,7 +131,7 @@ html, body {
   font-size: 8px;
   margin-top: 2px;
   letter-spacing: 0.06em;
-  color: #333;
+  color: rgba(169, 183, 198, 0.5);
 }
 .chip-orange { background: #140d00; border-color: rgba(204, 120, 50, 0.25); }
 .chip-orange .chip-value { color: #FFC66D; text-shadow: 0 0 10px rgba(255, 198, 109, 0.5); }
