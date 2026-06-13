@@ -73,7 +73,7 @@ test.describe('navigation', () => {
 
   test('vim mode flashes INSERT then returns to NORMAL on navigation', async ({ page }) => {
     await page.locator('[data-file-id="experience"]').click();
-    await expect(page.locator('#vim-mode')).toHaveText('-- INSERT --');
+    await expect(page.locator('#vim-mode')).toHaveText('-- INSERT --', { timeout: 500 });
     await expect(page.locator('#vim-mode')).toHaveText('-- NORMAL --', { timeout: 2000 });
   });
 });
@@ -82,5 +82,31 @@ test.describe('resume', () => {
   test('resume PDF is accessible', async ({ page }) => {
     const resp = await page.request.get('/resume.pdf');
     expect(resp.status()).toBe(200);
+  });
+});
+
+test.describe('mobile', () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test('hamburger visible and sidebar hidden by default', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('#sidebar-toggle')).toBeVisible();
+    const sidebar = page.locator('#sidebar');
+    // sidebar should not have class 'open' initially
+    await expect(sidebar).not.toHaveClass(/open/);
+  });
+
+  test('hamburger click opens sidebar', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#sidebar-toggle').click();
+    await expect(page.locator('#sidebar')).toHaveClass(/open/);
+  });
+
+  test('clicking a file in sidebar closes it', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#sidebar-toggle').click();
+    await expect(page.locator('#sidebar')).toHaveClass(/open/);
+    await page.locator('[data-file-id="skills"]').click();
+    await expect(page.locator('#sidebar')).not.toHaveClass(/open/);
   });
 });
