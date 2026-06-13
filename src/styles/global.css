@@ -90,3 +90,14 @@ html, body {
   line-height: 1.6;
 }
 .code-line { display: block; }
+
+/* Typing animation cursor */
+.typing-cursor {
+  display: inline-block;
+  animation: blink 0.8s step-end infinite;
+  color: var(--text);
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

@@ -1,0 +1,91 @@
+function setActiveTab(fileId: string): void {
+  document.querySelectorAll<HTMLElement>('.tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.tabId === fileId);
+  });
+  document.querySelectorAll<HTMLElement>('.file-row').forEach(row => {
+    row.classList.toggle('active', row.dataset.fileId === fileId);
+  });
+}
+
+function flashVimInsert(): void {
+  const modeEl = document.getElementById('vim-mode');
+  if (!modeEl) return;
+  modeEl.textContent = '-- INSERT --';
+  modeEl.classList.add('insert');
+  setTimeout(() => {
+    modeEl.textContent = '-- NORMAL --';
+    modeEl.classList.remove('insert');
+  }, 600);
+}
+
+function updateStatusbarFilename(fileId: string): void {
+  const filenameEl = document.getElementById('vim-filename');
+  if (!filenameEl) return;
+  const section = document.getElementById(fileId);
+  filenameEl.textContent = section?.dataset.filename ?? '';
+}
+
+function navigateToSection(fileId: string): void {
+  const section = document.getElementById(fileId);
+  if (!section) return;
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setActiveTab(fileId);
+  updateStatusbarFilename(fileId);
+  flashVimInsert();
+}
+
+// Sidebar file clicks
+document.querySelectorAll<HTMLElement>('.file-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const id = row.dataset.fileId;
+    if (id) navigateToSection(id);
+  });
+});
+
+// Sidebar outline clicks
+document.querySelectorAll<HTMLElement>('.outline-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const id = row.dataset.target;
+    if (id) navigateToSection(id);
+  });
+});
+
+// Tab clicks
+document.querySelectorAll<HTMLElement>('.tab').forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).classList.contains('tab-close')) return;
+    const id = tab.dataset.tabId;
+    if (id) navigateToSection(id);
+  });
+});
+
+// IntersectionObserver — update active tab/filename as sections scroll into view
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    if (visible.length > 0) {
+      const section = visible[0].target as HTMLElement;
+      setActiveTab(section.id);
+      updateStatusbarFilename(section.id);
+    }
+  },
+  { threshold: 0.15 }
+);
+
+document.querySelectorAll<HTMLElement>('.editor-section').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// Scroll → Ln counter
+const editorArea = document.getElementById('editor-area');
+const lnEl = document.getElementById('vim-ln');
+
+if (editorArea && lnEl) {
+  editorArea.addEventListener('scroll', () => {
+    const lineHeight = 20.8;
+    const ln = Math.floor(editorArea.scrollTop / lineHeight) + 1;
+    lnEl.textContent = `Ln ${ln}, Col 1`;
+  });
+}
