@@ -98,3 +98,21 @@ if (editorArea && lnEl) {
     lnEl.textContent = `Ln ${ln}, Col 1`;
   });
 }
+
+// Mobile sidebar toggle
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+
+if (sidebarToggle && sidebar) {
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+
+  document.querySelectorAll<HTMLElement>('.file-row, .outline-row').forEach(row => {
+    row.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+      }
+    });
+  });
+}
