@@ -88,9 +88,13 @@ const outline = [
   text-align: left;
 }
 .file-row:hover, .outline-row:hover {
-  background: var(--sel);
+  background: rgba(255, 255, 255, 0.04);
 }
-.file-row.active { background: var(--sel); }
+.file-row.active {
+  background: #1a0d00;
+  border-right: 2px solid #CC7832;
+  color: #CC7832;
+}
 .indent { width: 16px; flex-shrink: 0; }
 .file-icon { font-size: 11px; }
 </style>
