@@ -37,7 +37,7 @@ test.describe('sections', () => {
 
   test('README section exists with name', async ({ page }) => {
     await expect(page.locator('#readme')).toBeAttached();
-    await expect(page.locator('#readme')).toContainText('Anmol Badi');
+    await expect(page.locator('#readme')).toContainText('Anmol');
   });
 
   test('experience section exists with CRED', async ({ page }) => {
@@ -53,6 +53,36 @@ test.describe('sections', () => {
   test('contact section has email link', async ({ page }) => {
     await expect(page.locator('#contact')).toBeAttached();
     await expect(page.locator('#contact a[href="mailto:anmolbadi@gmail.com"]')).toBeVisible();
+  });
+});
+
+test.describe('visual enhancements', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('README hero avatar is visible', async ({ page }) => {
+    await expect(page.locator('.hero-avatar')).toBeVisible();
+    await expect(page.locator('.hero-avatar')).toContainText('A');
+  });
+
+  test('README hero name shows Anmol', async ({ page }) => {
+    await expect(page.locator('.hero-name')).toBeVisible();
+    await expect(page.locator('.hero-name')).toContainText('Anmol');
+  });
+
+  test('experience section has metric chips', async ({ page }) => {
+    await expect(page.locator('#experience .metric-chips').first()).toBeVisible();
+  });
+
+  test('metric chips contain impact values', async ({ page }) => {
+    await expect(page.locator('#experience')).toContainText('7h→1h');
+    await expect(page.locator('#experience')).toContainText('50M+');
+    await expect(page.locator('#experience')).toContainText('16M');
+  });
+
+  test('page title is Anmol', async ({ page }) => {
+    await expect(page).toHaveTitle('Anmol');
   });
 });
 
