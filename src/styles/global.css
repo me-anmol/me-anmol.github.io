@@ -30,7 +30,7 @@ html, body {
   font-family: 'JetBrains Mono', Consolas, monospace;
   font-size: 13px;
   line-height: 1.6;
-  overflow: hidden;
+  overflow: hidden; /* intentional — all scrolling handled by .editor-area in IDELayout */
 }
 
 /* Syntax highlight classes — used in section components */
