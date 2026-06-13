@@ -1,0 +1,61 @@
+---
+const tabs = [
+  { name: 'README.md',       id: 'readme' },
+  { name: 'experience.java', id: 'experience' },
+  { name: 'skills.json',     id: 'skills' },
+  { name: 'contact.md',      id: 'contact' },
+];
+---
+
+<div class="tabbar" id="tabbar">
+  {tabs.map((t, i) => (
+    <button
+      class:list={['tab', { active: i === 0 }]}
+      data-tab-id={t.id}
+      data-filename={`anmol/${t.name}`}
+      aria-label={`Tab: ${t.name}`}
+    >
+      <span class="tab-name">{t.name}</span>
+      <span class="tab-close" aria-hidden="true">×</span>
+    </button>
+  ))}
+</div>
+
+<style>
+.tabbar {
+  display: flex;
+  background: var(--panel);
+  border-bottom: 1px solid #1e1e1e;
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+.tabbar::-webkit-scrollbar { display: none; }
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--bg);
+  border: none;
+  border-right: 1px solid #1e1e1e;
+  border-bottom: 2px solid transparent;
+  color: var(--gutter);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--num);
+  background: var(--bg);
+}
+.tab-close {
+  opacity: 0.4;
+  font-size: 14px;
+  line-height: 1;
+}
+.tab:hover .tab-close { opacity: 0.8; }
+</style>
