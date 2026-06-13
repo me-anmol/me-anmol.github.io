@@ -2,7 +2,7 @@
 function lines(n: number) {
   return Array.from({ length: n }, (_, i) => i + 1);
 }
-const lineCount = 22;
+const lineCount = 21;
 ---
 
 <section class="editor-section" id="readme" data-filename="anmol/README.md">
@@ -10,10 +10,14 @@ const lineCount = 22;
     {lines(lineCount).map(n => <span>{n}</span>)}
   </div>
   <div class="code-content" id="readme-content" data-typing="true">
-    <span class="code-line"><span class="md-h1"># Anmol Badi</span></span>
-    <span class="code-line"></span>
-    <span class="code-line"><span class="md-bold">**Software Engineer**</span> · Platform &amp; Infrastructure</span>
-    <span class="code-line"><span class="md-italic">_CRED · Bangalore · Open to US/Remote_</span></span>
+    <div class="hero-block">
+      <div class="hero-avatar" aria-hidden="true">A</div>
+      <div>
+        <span class="hero-name"># Anmol</span>
+        <span class="hero-subtitle"><span class="md-bold">**Software Engineer**</span> · Platform &amp; Infrastructure</span>
+        <span class="hero-location"><span class="md-italic">_CRED · Bangalore · Open to US/Remote_</span></span>
+      </div>
+    </div>
     <span class="code-line"></span>
     <span class="code-line"><span class="md-quote">&gt; Software engineer with 3+ years designing and scaling production</span></span>
     <span class="code-line"><span class="md-quote">&gt; systems at CRED — a fintech platform serving <span class="num">16M</span> users and</span></span>
