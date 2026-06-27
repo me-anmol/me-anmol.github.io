@@ -79,7 +79,7 @@ test.describe('projects section', () => {
   test('projects section has repo link to GitHub', async ({ page }) => {
     await expect(
       page.locator('#projects a[href="https://github.com/me-anmol/EmailScraper"]')
-    ).toBeAttached();
+    ).toBeVisible();
   });
 
   test('clicking projects.go in sidebar activates its tab', async ({ page }) => {
