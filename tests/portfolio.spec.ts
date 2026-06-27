@@ -15,16 +15,18 @@ test.describe('IDE shell', () => {
     await expect(page.locator('#vim-mode')).toHaveText('-- NORMAL --');
   });
 
-  test('all four files appear in sidebar', async ({ page }) => {
+  test('all five files appear in sidebar', async ({ page }) => {
     await expect(page.getByText('README.md').first()).toBeVisible();
     await expect(page.getByText('experience.java').first()).toBeVisible();
+    await expect(page.getByText('projects.go').first()).toBeVisible();
     await expect(page.getByText('skills.json').first()).toBeVisible();
     await expect(page.getByText('contact.md').first()).toBeVisible();
   });
 
-  test('all four tabs render', async ({ page }) => {
+  test('all five tabs render', async ({ page }) => {
     await expect(page.locator('[data-tab-id="readme"]')).toBeVisible();
     await expect(page.locator('[data-tab-id="experience"]')).toBeVisible();
+    await expect(page.locator('[data-tab-id="projects"]')).toBeVisible();
     await expect(page.locator('[data-tab-id="skills"]')).toBeVisible();
     await expect(page.locator('[data-tab-id="contact"]')).toBeVisible();
   });
@@ -53,6 +55,36 @@ test.describe('sections', () => {
   test('contact section has email link', async ({ page }) => {
     await expect(page.locator('#contact')).toBeAttached();
     await expect(page.locator('#contact a[href="mailto:anmolbadi@gmail.com"]')).toBeVisible();
+  });
+});
+
+test.describe('projects section', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('projects section exists with EmailScraper', async ({ page }) => {
+    await expect(page.locator('#projects')).toBeAttached();
+    await expect(page.locator('#projects')).toContainText('EmailScraper');
+  });
+
+  test('projects section has tech chips', async ({ page }) => {
+    await expect(page.locator('#projects .metric-chips').first()).toBeVisible();
+  });
+
+  test('projects section chip contains Go', async ({ page }) => {
+    await expect(page.locator('#projects')).toContainText('Go');
+  });
+
+  test('projects section has repo link to GitHub', async ({ page }) => {
+    await expect(
+      page.locator('#projects a[href="https://github.com/me-anmol/EmailScraper"]')
+    ).toBeAttached();
+  });
+
+  test('clicking projects.go in sidebar activates its tab', async ({ page }) => {
+    await page.locator('[data-file-id="projects"]').click();
+    await expect(page.locator('[data-tab-id="projects"]')).toHaveClass(/active/);
   });
 });
 
